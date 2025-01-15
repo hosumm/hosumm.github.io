@@ -1,31 +1,160 @@
-body {
-    font-family: Arial, sans-serif;
+/* 重置基础样式 */
+* {
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    box-sizing: border-box;
+    border: 0px solid;
 }
-header {
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* 页眉样式 */
+.header {
+    display: flex;
+    justify-content: left; /* 左右分布 */
+    align-items: center;
+    position: sticky;
+    top: 0;
     background: #333;
     color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    padding: 1rem 2rem;
+    z-index: 1000;
 }
-nav ul {
+
+.site-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 1rem 0 0;
+}
+
+.main-nav ul {
     list-style: none;
-    padding: 0;
+    display: flex;
+    gap: 1rem;
 }
-nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-nav ul li a {
+
+.main-nav ul li a {
     color: #fff;
     text-decoration: none;
 }
-footer {
+
+.main-nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 主体内容 */
+.main-content {
+    padding: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.content-section {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    justify-content: space-between;  /* 横向分布 */
+}
+.filter-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0 0 1rem 0;
+}
+
+.filter-list li a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.filter-list li a:hover {
+    background: #f4f4f4;
+}
+
+/* 文章内容 */
+.post {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    border: 1px solid #ddd;
+    max-width: 50%;  /* 设置宽度最大为50% */
+    box-sizing: border-box; /* 确保内外边距和边框包含在宽度内 */
+    overflow: auto;    /* 如果内容过多，隐藏超出部分，或改为overflow: auto; */
+    word-wrap: break-word; /* 自动换行 */
+}
+
+
+
+.post-header .post-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-header h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/* 侧边栏 */
+.sidebar {
+    flex: 0 0 15%; /* 侧边栏占15%的宽度 */
+    background: #f9f9f9;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 页脚 */
+.footer {
     text-align: center;
-    margin-top: 2rem;
     background: #333;
     color: #fff;
     padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* 响应式样式 */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .filter-list {
+        flex-wrap: wrap;
+    }
 }
